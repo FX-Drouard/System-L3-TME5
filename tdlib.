@@ -1,0 +1,94 @@
+ATOI(3)                 Manuel du programmeur Linux                 ATOI(3)
+
+NNOOMM
+       atoi, atol, atoll - Convertir une chaîne en un entier
+
+SSYYNNOOPPSSIISS
+       ##iinncclluuddee <<ssttddlliibb..hh>>
+
+       iinntt aattooii((ccoonnsstt cchhaarr **_n_p_t_r));;
+       lloonngg aattooll((ccoonnsstt cchhaarr **_n_p_t_r));;
+       lloonngg lloonngg aattoollll((ccoonnsstt cchhaarr **_n_p_t_r));;
+
+   Exigences  de macros de test de fonctionnalités pour la glibc (consulter
+   ffeeaattuurree__tteesstt__mmaaccrrooss(7)) :
+
+       aattoollll() :
+           _ISOC99_SOURCE ||
+               || /* Versions de la glibc <= 2.19 : */ _BSD_SOURCE ||
+           _SVID_SOURCE
+
+DDEESSCCRRIIPPTTIIOONN
+       La  fonction aattooii() convertit le début de la chaîne pointée par _n_p_t_r
+       en entier de type _i_n_t. Le résultat est identique à un appel à
+
+           strtol(nptr, NULL, 10);
+
+       à la différence que aattooii() ne détecte pas d'erreur.
+
+       Les fonctions aattooll() et aattoollll()  se  comportent  comme  aattooii()  sauf
+       qu'elles  convertissent  la  portion initiale de la chaîne dans leur
+       type de retour _l_o_n_g ou _l_o_n_g _l_o_n_g.
+
+VVAALLEEUURR RREENNVVOOYYÉÉEE
+       Le résultat de la conversion ou 00 en cas d'erreur.
+
+AATTTTRRIIBBUUTTSS
+       Pour une explication des termes utilisés dans cette section, consul‐
+       ter aattttrriibbuutteess(7).
+
+       ┌────────────────────────┬──────────────────────┬────────────────┐
+       │IInntteerrffaaccee               │ AAttttrriibbuutt             │ VVaalleeuurr         │
+       ├────────────────────────┼──────────────────────┼────────────────┤
+       │aattooii(), aattooll(), aattoollll() │ Sécurité des threads │ MT-Safe locale │
+       └────────────────────────┴──────────────────────┴────────────────┘
+CCOONNFFOORRMMIITTÉÉ
+       POSIX.1-2001,  POSIX.1-2008,  C99, SVr4, 4.3BSD. C89 et POSIX.1-1996
+       n'incluent que les fonctions aattooii() et aattooll().
+
+NNOOTTEESS
+       POSIX.1 ne spécifie aucune valeur de retour pour aattooii() en cas d'er‐
+       reur.  Les  bibliothèques  glibc, musl libc et uClibc renvoient 00 en
+       cas d'erreur.
+
+BBOOGGUUEESS
+       Comme _e_r_r_n_o n'est pas fixé en cas d'erreur, il n'est pas possible de
+       différencier  00 d'une erreur ou de la valeur convertie. Aucune véri‐
+       fication de dépassement par le haut ou pas le bas  n'est  effectuée.
+       Seules les entrées en base 10 peuvent être converties. Il est recom‐
+       mandé d'utiliser à la place la famille de fonctions ssttrrttooll() et ssttrr‐‐
+       ttoouull() dans les nouveaux programmes.
+
+VVOOIIRR AAUUSSSSII
+       aattooff(3), ssttrrttoodd(3), ssttrrttooll(3), ssttrrttoouull(3)
+
+CCOOLLOOPPHHOONN
+       Cette  page  fait  partie de la publication 5.10 du projet _m_a_n_-_p_a_g_e_s
+       Linux. Une description du projet et des instructions  pour  signaler
+       des  anomalies  et  la  dernière  version de cette page peuvent être
+       trouvées à l'adresse https://www.kernel.org/doc/man-pages/.
+
+TTRRAADDUUCCTTIIOONN
+       La traduction française de cette page de  manuel  a  été  créée  par
+       Christophe Blaess <https://www.blaess.fr/christophe/>, Stéphan Rafin
+       <stephan.rafin@laposte.net>,    Thierry    Vignaud    <tvignaud@man‐
+       driva.com>,  François Micaux, Alain Portal <aportal@univ-montp2.fr>,
+       Jean-Philippe  Guérard  <fevrier@tigreraye.org>,   Jean-Luc   Coulon
+       (f5ibh)  <jean-luc.coulon@wanadoo.fr>,  Julien Cristau <jcristau@de‐
+       bian.org>, Thomas Huriaux <thomas.huriaux@gmail.com>, Nicolas  Fran‐
+       çois   <nicolas.francois@centraliens.net>,  Florentin  Duneau  <fdu‐
+       neau@gmail.com>,  Simon   Paillard   <simon.paillard@resel.enst-bre‐
+       tagne.fr>,  Denis  Barbier  <barbier@debian.org>,  David Prévot <da‐
+       vid@tilapin.org> et Grégoire Scano <gregoire.scano@malloc.fr>
+
+       Cette traduction est une documentation libre ; veuillez vous  repor‐
+       ter     à     la    GNU    General    Public    License    version 3
+       ⟨https://www.gnu.org/licenses/gpl-3.0.html⟩  concernant  les  condi‐
+       tions  de  copie  et de distribution. Il n'y a aucune RESPONSABILITÉ
+       LÉGALE.
+
+       Si vous découvrez un bogue dans la traduction de cette page  de  ma‐
+       nuel,     veuillez     envoyer    un    message    à    debian-l10n-
+       french@lists.debian.org ⟨⟩.
+
+GNU                             13 août 2020                        ATOI(3)
